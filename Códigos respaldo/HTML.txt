@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alimentos Pacandé</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    
+<!-- ======================================================================== -->
+<!-- 1. MENÚ PRINCIPAL -->
+<!-- ======================================================================== -->
+<header>
+    <nav class="navbar navbar-light bg-white sticky-top shadow-sm">
+        <div class="container d-flex align-items-center justify-content-between position-relative">
+            <!-- Logo que redirige al inicio -->
+            <a class="navbar-brand d-flex align-items-center" href="#inicio">
+                <!-- Logo grande (escritorio) -->
+                <img 
+                    src="./img/logo-grande.png" 
+                    alt="Logotipo grande de Alimentos Pacandé - Inicio" 
+                    class="logo-grande img-fluid"
+                    loading="lazy"
+                    onerror="this.src='./img/default-logo.png'; this.alt='Imagen predeterminada';">
+                
+                <!-- Logo pequeño (móviles) -->
+                <img 
+                    src="./img/logo-pequeño.png" 
+                    alt="Logotipo pequeño de Alimentos Pacandé - Inicio" 
+                    class="logo-pequeño img-fluid"
+                    loading="lazy"
+                    onerror="this.src='./img/default-icon.png'; this.alt='Ícono predeterminado';">
+            </a>
+
+            <!-- Menú principal -->
+            <ul class="navbar-nav d-flex flex-row justify-content-center align-items-center gap-4 flex-grow-1">
+                <!-- Submenú categorías -->
+                <li class="nav-item dropdown">
+                    <a 
+                        class="nav-link dropdown-toggle" 
+                        href="#" 
+                        id="menu-productos" 
+                        role="button" 
+                        data-bs-toggle="dropdown" 
+                        aria-expanded="false"
+                        data-full="Productos" 
+                        data-short="Prod."
+                        data-initialized="false">
+                        Productos
+                    </a>
+                    <ul class="dropdown-menu" id="submenu-categorias" aria-labelledby="menu-productos">
+                        <li>
+                            <p class="dropdown-item text-muted">
+                                Cargando categorías, por favor espere...
+                            </p>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Enlaces de navegación -->
+                <li class="nav-item">
+                    <a 
+                        class="nav-link" 
+                        href="#destacados" 
+                        data-full="Destacados" 
+                        data-short="Dest." 
+                        data-initialized="false">
+                        Destacados
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a 
+                        class="nav-link" 
+                        href="#contacto" 
+                        data-full="Contacto" 
+                        data-short="Cont." 
+                        data-initialized="false">
+                        Contacto
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a 
+                        class="nav-link" 
+                        href="#conocenos" 
+                        data-full="Conócenos" 
+                        data-short="Con." 
+                        data-initialized="false">
+                        Conócenos
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Botón "Tienda" -->
+            <div class="tienda-container">
+                <a 
+                    class="nav-link d-flex align-items-center tienda-link" 
+                    href="#tienda-virtual" 
+                    aria-label="Ir a la tienda virtual">
+                    <span class="text-tienda me-2">Tienda</span>
+                    <img 
+                        src="./img/tienda.png" 
+                        alt="Ícono de Tienda Virtual" 
+                        class="img-fluid tienda"
+                        loading="lazy"
+                        onerror="this.src='./img/default-tienda.png'; this.alt='Imagen predeterminada';">
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- DIV INICIO PARA ANCLAR EL SCROLL -->
+<div id="inicio" style="height: 1px;"></div>
+
+
+<!-- DIV INICIO PARA ANCLAR EL SCROLL -->
+<div id="inicio" style="height: 1px;"></div>
+
+
+<!-- ======================================================================== -->
+<!-- 2. BANNERS PUBLICITARIOS -->
+<!-- ======================================================================== -->
+<section id="banners" class="mt-5">
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000">
+        <!-- Indicadores del carrusel -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
+
+        <!-- Contenido del carrusel -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./img/banner1.jpg" class="d-block w-100" alt="Promoción especial de productos Pacandé">
+            </div>
+            <div class="carousel-item">
+                <img src="./img/banner2.jpg" class="d-block w-100" alt="Nuevos lanzamientos de productos naturales">
+            </div>
+            <div class="carousel-item">
+                <img src="./img/banner3.jpg" class="d-block w-100" alt="Descuento exclusivo en nuestra tienda online">
+            </div>
+            <div class="carousel-item">
+                <img src="./img/banner4.jpg" class="d-block w-100" alt="Descubre nuestras recetas saludables">
+            </div>
+            <div class="carousel-item">
+                <img src="./img/banner5.jpg" class="d-block w-100" alt="Promoción limitada en snacks naturales">
+            </div>
+        </div>
+
+        <!-- Controles del carrusel -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev" aria-label="Slide anterior">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next" aria-label="Slide siguiente">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+</section>
+
+<!-- ======================================================================== -->
+<!-- 3. DESTACADOS -->
+<!-- ======================================================================== -->
+<section id="destacados" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">Productos Destacados</h2>
+        <!-- Contenedor principal de destacados -->
+        <div id="destacadosContainer" class="destacados-section">
+            <div id="productosDestacadosGrid" class="row justify-content-center gap-4" aria-live="polite">
+                <!-- Los productos destacados se cargarán dinámicamente aquí -->
+                <p class="text-center text-muted">Cargando productos destacados...</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================================================== -->
+<!-- 4. PRODUCTOS -->
+<!-- ======================================================================== -->
+<section id="categorias" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">Productos</h2>
+        <!-- Contenedor principal de categorías -->
+        <div id="categoriasContainer" aria-live="polite">
+            <!-- Las categorías se generarán dinámicamente aquí -->
+            <p class="text-center text-muted">Cargando categorías de productos...</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ======================================================================== -->
+<!-- 5. TIENDA -->
+<!-- ======================================================================== -->
+<section id="tienda-virtual" class="py-5">
+    <div class="container">
+        <!-- Contenedor principal para la sección de tiendas -->
+        <div id="tiendasContainer" class="tiendas-section">
+            <h2 class="text-center mb-4">Visita Nuestras Tiendas</h2>
+            <!-- Contenedor dinámico de tiendas -->
+            <div id="tiendaContainer" class="row justify-content-center gap-4">
+                <!-- Mensaje de carga inicial con accesibilidad -->
+                <p id="loadingMessage" class="text-center text-muted" aria-live="polite">
+                    Cargando tiendas, por favor espere...
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================================================== -->
+<!-- 6. CONÓCENOS -->
+<!-- ======================================================================== -->
+<section id="conocenos" class="py-5 bg-light">
+    <div class="container text-center">
+        <h2 class="mb-4">Conócenos</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <img src="./img/conocenos1.jpg" alt="Conócenos 1" class="img-fluid rounded">
+            </div>
+            <div class="col-md-4">
+                <img src="./img/conocenos2.jpg" alt="Conócenos 2" class="img-fluid rounded">
+            </div>
+            <div class="col-md-4">
+                <img src="./img/conocenos3.jpg" alt="Conócenos 3" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================================================== -->
+<!-- 7. CONTACTO -->
+<!-- ======================================================================== -->
+<section id="contacto" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Contáctanos</h2>
+        <div id="contactanos-links" class="d-flex justify-content-center gap-3 flex-wrap"></div>
+        <div id="redes-sociales" class="py-4">
+            <h3 class="text-center mt-5">Síguenos en nuestras redes sociales</h3>
+            <div id="social-media-links" class="d-flex justify-content-center gap-3 mt-3"></div>
+        </div>
+    </div>
+</section>
+
+    <!-- ======================================================================== -->
+    <!-- 8. BOTONES FLOTANTES -->
+    <!-- ======================================================================== -->
+    <div class="boton-flotante whatsapp">
+        <a href="https://wa.me/1234567890" target="_blank">
+            <img src="./img/whatsapp.png" alt="WhatsApp">
+        </a>
+    </div>
+    <div class="boton-flotante gmail">
+        <a href="mailto:alimentospacande@gmail.com" target="_blank">
+            <img src="./img/gmail.png" alt="Gmail">
+        </a>
+    </div>
+
+    <!-- ======================================================================== -->
+    <!-- 9. SCRIPTS -->
+    <!-- ======================================================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="js/productos.js"></script>
+</body>
+</html>

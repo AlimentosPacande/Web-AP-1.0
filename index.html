@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alimentos Pacandé</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    
+<<!-- ======================================================================== -->
+<!-- MENÚ PRINCIPAL -->
+<!-- ======================================================================== -->
+<header>
+    <nav class="navbar navbar-light bg-white sticky-top shadow-sm">
+        <div class="container d-flex align-items-center justify-content-between">
+            <!-- LOGO -->
+            <a class="navbar-brand d-flex align-items-center" href="#inicio">
+                <!-- Logo grande (pantallas grandes) -->
+                <img 
+                id="logo-grande"
+                src="./img/logo-grande.png" 
+                alt="Logotipo de Alimentos Pacandé - Inicio" 
+                class="logo-grande img-fluid"
+                loading="lazy"
+                onerror="this.src='./img/default-logo.png'; this.alt='Imagen predeterminada';">
+                
+            </a>
+
+            <!-- MENÚ PRINCIPAL -->
+            <ul class="navbar-nav d-flex flex-row justify-content-center align-items-center flex-grow-1 gap-2">
+                <!-- Submenú Categorías -->
+                <li class="nav-item dropdown position-relative">
+                    <a 
+                        class="nav-link dropdown-toggle fw-bold" 
+                        href="#" 
+                        id="menu-productos" 
+                        role="button" 
+                        data-bs-toggle="dropdown" 
+                        aria-expanded="false">
+                        <span class="d-none d-md-inline">Productos</span>
+                        <span class="d-inline d-md-none">Prod.</span>
+                    </a>
+                    <ul class="dropdown-menu" id="submenu-categorias" aria-labelledby="menu-productos">
+                        <!-- Contenido generado dinámicamente por JS -->
+                    </ul>
+                </li>
+
+                <!-- Enlace Destacados -->
+                <li class="nav-item">
+                    <a class="nav-link fw-bold" href="#destacados" data-full="Destacados" data-short="Dest.">
+                        <span class="d-none d-md-inline">Destacados</span>
+                        <span class="d-inline d-md-none">Dest.</span>
+                    </a>
+                </li>
+              
+
+                <!-- Enlace Conócenos -->
+                <li class="nav-item">
+                    <a class="nav-link fw-bold" href="#conocenos" data-full="Conócenos" data-short="Con.">
+                        <span class="d-none d-md-inline">Conócenos</span>
+                        <span class="d-inline d-md-none">Con.</span>
+                    </a>
+                </li>
+
+                <!-- Enlace Contacto -->
+                <li class="nav-item">
+                    <a class="nav-link fw-bold" href="#contacto" data-full="Contacto" data-short="Cont.">
+                        <span class="d-none d-md-inline">Contacto</span>
+                        <span class="d-inline d-md-none">Cont.</span>
+                    </a>
+                </li>
+
+                <!-- Enlace Tienda con Ícono -->
+                <li class="nav-item">
+                    <a 
+                        class="nav-link tienda-link fw-bold d-flex align-items-center gap-2" 
+                        href="#tienda-virtual" 
+                        data-full="Tienda" 
+                        data-short="Tie.">
+                        <span class="d-none d-md-inline">Tienda</span>
+                        <span class="d-inline d-md-none">Tie.</span>
+                        <img 
+                            src="./img/tienda.png" 
+                            alt="Ícono de Tienda Virtual" 
+                            class="img-fluid tienda-icono"
+                            loading="lazy"
+                            style="max-height: 40px; object-fit: contain;"
+                            onerror="this.src='./img/default-tienda.png'; this.alt='Ícono predeterminado';">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- MARCADOR DE INICIO -->
+<div id="inicio" style="height: 1px;"></div>
+
+
+<!-- Marcadores de destino para los enlaces -->
+<div id="categoria1" style="height: 1px;"></div>
+<div id="categoria2" style="height: 1px;"></div>
+<div id="categoria3" style="height: 1px;"></div>
+
+<!-- ======================================================================== -->
+<!-- 2. BANNERS PUBLICITARIOS -->
+<!-- ======================================================================== -->
+<section id="banners" class="mt-5">
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000">
+        <!-- Indicadores del carrusel -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
+
+        <!-- Contenido del carrusel -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./img/banner1.jpg" class="d-block w-100" alt="Promoción especial de productos Pacandé">
+            </div>
+            <div class="carousel-item">
+                <img src="./img/banner2.jpg" class="d-block w-100" alt="Nuevos lanzamientos de productos naturales">
+            </div>
+            <div class="carousel-item">
+                <img src="./img/banner3.jpg" class="d-block w-100" alt="Descuento exclusivo en nuestra tienda online">
+            </div>
+            <div class="carousel-item">
+                <img src="./img/banner4.jpg" class="d-block w-100" alt="Descubre nuestras recetas saludables">
+            </div>
+            <div class="carousel-item">
+                <img src="./img/banner5.jpg" class="d-block w-100" alt="Promoción limitada en snacks naturales">
+            </div>
+        </div>
+
+        <!-- Controles del carrusel -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev" aria-label="Slide anterior">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next" aria-label="Slide siguiente">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+</section>
+
+<!-- ======================================================================== -->
+<!-- 3. DESTACADOS -->
+<!-- ======================================================================== -->
+<section id="destacados" class="py-5 bg-light">
+    <div class="container">
+        <!--<h2 class="text-center mb-4">Productos Destacados</h2>-->
+        <!-- Contenedor principal de destacados -->
+        <div id="destacadosContainer" class="destacados-section">
+            <div id="productosDestacadosGrid" class="row justify-content-center gap-4" aria-live="polite">
+                <!-- Los productos destacados se cargarán dinámicamente aquí -->
+                <p class="text-center text-muted">Cargando productos destacados...</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================================================== -->
+<!-- 4. PRODUCTOS -->
+<!-- ======================================================================== -->
+<section id="categorias" class="py-5 bg-light">
+    <div class="container">
+        <!--<h2 class="text-center mb-4">Productos</h2>-->
+        <!-- Contenedor principal de categorías -->
+        <div id="categoriasContainer" aria-live="polite">
+            <!-- Las categorías se generarán dinámicamente aquí -->
+            <p class="text-center text-muted">Cargando categorías de productos...</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ======================================================================== -->
+<!-- 5. TIENDA -->
+<!-- ======================================================================== -->
+<section id="tienda-virtual" class="py-5">
+    <div class="container">
+        <!-- Contenedor principal para la sección de tiendas -->
+        <div id="tiendasContainer" class="tiendas-section">
+            <h2 class="text-center mb-4">Visita Nuestras Tiendas</h2>
+            <!-- Contenedor dinámico de tiendas -->
+            <div id="tiendaContainer" class="row justify-content-center gap-4">
+                <!-- Mensaje de carga inicial con accesibilidad -->
+                <p id="loadingMessage" class="text-center text-muted" aria-live="polite">
+                    Cargando tiendas, por favor espere...
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================================================== -->
+<!-- 6. CONÓCENOS -->
+<!-- ======================================================================== -->
+<section id="conocenos" class="py-5 bg-light">
+    <div class="container text-center">
+        <h2 class="mb-4">Conócenos</h2>
+        <p>Somos una empresa dedicada a ofrecer alimentos saludables y sostenibles. Descubre más sobre nosotros.</p>
+        <!-- Carrusel -->
+        <div id="carouselConocenos" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="6000">
+            <!-- Indicadores -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselConocenos" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselConocenos" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselConocenos" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+
+            <!-- Imágenes del carrusel -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./img/conocenos1.jpg" class="d-block w-100 img-fluid" alt="Filosofía empresarial">
+                </div>
+                <div class="carousel-item">
+                    <img src="./img/conocenos2.jpg" class="d-block w-100 img-fluid" alt="Nuestro equipo de trabajo">
+                </div>
+                <div class="carousel-item">
+                    <img src="./img/conocenos3.jpg" class="d-block w-100 img-fluid" alt="Instalaciones modernas">
+                </div>
+            </div>
+
+            <!-- Controles de navegación -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselConocenos" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselConocenos" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================================================== -->
+<!-- 7. CONTACTO -->
+<!-- ======================================================================== -->
+<section id="contacto" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Contáctanos</h2>
+        <div id="contactanos-links" class="d-flex justify-content-center gap-3 flex-wrap"></div>
+        <div id="redes-sociales" class="py-4">
+            <h3 class="text-center mt-5">Síguenos en nuestras redes sociales</h3>
+            <div id="social-media-links" class="d-flex justify-content-center gap-3 mt-3"></div>
+        </div>
+    </div>
+</section>
+
+    
+
+    <!-- ======================================================================== -->
+    <!-- 9. SCRIPTS -->
+    <!-- ======================================================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="js/productos.js"></script>
+</body>
+</html>

@@ -1,0 +1,1292 @@
+/* ========================================================================== */
+/* 1. ESTILOS GENERALES DEL MENÚ PRINCIPAL */
+/* ========================================================================== */
+.navbar {
+    height: auto; /* Ajusta esta altura según tus necesidades */
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding: 8px 16px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1020;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#inicio {
+    height: 10; /* Evita espacios innecesarios al inicio */
+    margin-top: 10px; /* Asegura un espacio igual a la altura del navbar */
+}
+
+/* Estado al hacer scroll */
+.navbar.scrolled {
+    background-color: #05ac29;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .navbar-brand {
+    display: flex;
+    align-items: center;
+    max-height: 60px;
+    margin-right: auto; /* Deja el margen derecho en auto para ajustar automáticamente */
+    margin-left: auto; /* Deja el margen derecho en auto para ajustar automáticamente */
+}
+
+.navbar .navbar-brand img {
+    display: block;
+    max-height: 80px; /* Tamaño máximo del logo */
+    height: auto; /* Mantener proporción */
+    object-fit: contain; /* Evitar distorsión */
+    transition: max-height 0.3s ease;
+}
+
+
+
+
+/* ========================================================================== */
+/* 2. ENLACES DEL MENÚ PRINCIPAL */
+/* ========================================================================== */
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 12px;
+    width: 100%;
+}
+
+.navbar .nav-link {
+    color: #05ac29;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 3px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.navbar .nav-link:hover {
+    color: #e3ae00;
+    background-color: rgba(227, 174, 0, 0.15);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .nav-link.active {
+    color: #e3ae00;
+    background-color: rgba(227, 174, 0, 0.25);
+    font-weight: bold;
+}
+
+/* ========================================================================== */
+/* 3. BOTÓN "TIENDA" */
+/* ========================================================================== */
+.navbar .tienda-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px; /* Ajustar el padding */
+    color: #05ac29;
+    text-transform: uppercase;
+    font-size: 1rem; /* Aumentar el tamaño de la letra */
+    font-weight: bold;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    white-space: nowrap;
+    min-width: auto; /* Ajustar el tamaño mínimo del botón */
+    height: auto; /* Ajustar el alto del botón */
+}
+
+.navbar .tienda-link img {
+    max-height: auto; /* Aumentar el tamaño del ícono */
+    height: auto; /* Asegurar que la altura se ajuste automáticamente */
+    width: auto; /* Asegurar que el ancho se ajuste automáticamente */
+    object-fit: contain;
+    display: inline-block; /* Asegura que no se oculte */
+    margin: 0; /* Asegura que no haya margen adicional */
+}
+
+.navbar .tienda-link:hover {
+    background-color: #05ac29;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+
+
+/* ========================================================================== */
+/* 4. SUBMENÚS Y DROPDOWNS */
+/* ========================================================================== */
+
+/* Contenedor del dropdown */
+.navbar .dropdown {
+    position: relative; /* Posiciona el submenú en relación al contenedor padre */
+}
+
+.navbar .dropdown-menu {
+    position: absolute; /* Posicionamiento absoluto para control de ubicación */
+    top: 100%; /* Ubica el submenú justo debajo del enlace */
+    left: 0; /* Alinea el submenú con el lado izquierdo del enlace */
+    z-index: 1050; /* Asegura que esté encima de otros elementos */
+    display: none; /* Oculta el submenú inicialmente */
+    background-color: #fff; /* Fondo blanco */
+    border: 1px solid rgba(0, 0, 0, 0.15); /* Borde suave */
+    border-radius: 0.25rem; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 0.5rem 0; /* Espaciado interno */
+    margin: 0; /* Sin margen adicional */
+    min-width: 200px; /* Asegura un tamaño mínimo */
+    transform: translateY(10px); /* Suaviza la entrada con animación */
+    opacity: 0; /* Inicialmente invisible */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+}
+
+/* Muestra el submenú cuando está activo */
+.navbar .dropdown.show .dropdown-menu {
+    display: block;
+    transform: translateY(0); /* Resetea la posición */
+    opacity: 1; /* Totalmente visible */
+}
+
+/* Ajustar la posición del submenú */
+.navbar .dropdown-menu {
+    top: 100%; /* Ajusta la distancia desde la parte superior del contenedor padre */
+    left: 0; /* Ajusta la distancia desde el lado izquierdo del contenedor padre */
+    transform: translateX(0); /* Centra el submenú horizontalmente */
+}
+
+
+/* Enlaces del submenú */
+.navbar .dropdown-item {
+    color: #333; /* Color del texto */
+    font-size: 1rem; /* Tamaño del texto */
+    padding: 8px 15px; /* Espaciado interno */
+    text-decoration: none; /* Sin subrayado */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+}
+
+/* Hover en los enlaces del submenú */
+.navbar .dropdown-item:hover {
+    background-color: #05ac29; /* Fondo verde */
+    color: #fff; /* Texto blanco */
+}
+
+/* Ajustes para el botón que abre el dropdown */
+.navbar .nav-link.dropdown-toggle {
+    position: relative; /* Asegura su posición relativa */
+    z-index: 1060; /* Coloca el botón encima del submenú */
+    cursor: pointer; /* Indica que es interactivo */
+    transition: color 0.3s ease; /* Suaviza los cambios de color */
+}
+
+/* Hover en el botón del dropdown */
+.navbar .nav-link.dropdown-toggle:hover {
+    color: #e3ae00; /* Cambia a amarillo en hover */
+}
+
+/* Mostrar el submenú al hacer hover en el contenedor dropdown */
+.navbar .dropdown:hover .dropdown-menu {
+    display: block; /* Muestra el submenú */
+    transform: translateY(0); /* Restablece el desplazamiento */
+    opacity: 1; /* Asegura que sea visible */
+}
+
+
+/* ========================================================================== */
+/* 5. AJUSTES DE RESPONSIVIDAD */
+/* ========================================================================== */
+
+/* Estilos base comunes para la navbar */
+.navbar {
+    display: flex; /* Utiliza flexbox para el diseño */
+    justify-content: space-between; /* Espacia los elementos a los extremos */
+    padding: 8px 16px; /* Espaciado interno de la navbar */
+    min-height: 30px; /* Altura mínima de la navbar */
+}
+
+.navbar-nav {
+    display: flex; /* Utiliza flexbox para el diseño */
+    gap: 12px; /* Espaciado entre los elementos del nav */
+}
+
+.navbar .nav-link {
+    font-size: 1rem; /* Tamaño de fuente de los enlaces de navegación */
+    padding: 6px 10px; /* Espaciado interno de los enlaces de navegación */
+}
+
+.navbar .tienda-link {
+    font-size: 1rem; /* Tamaño de fuente del enlace de la tienda */
+    padding: 6px 10px; /* Espaciado interno del enlace de la tienda */
+    min-width: 90px; /* Ancho mínimo del enlace de la tienda */
+}
+
+.navbar .tienda-link img {
+    max-height: 35px; /* Altura máxima de la imagen del enlace de la tienda */
+    height: auto; /* Altura automática para mantener la proporción */
+    width: auto; /* Ancho automático para mantener la proporción */
+}
+
+.navbar .dropdown-menu {
+    position: absolute; /* Posición estática del menú desplegable */
+    width: auto; /* Ancho automático del menú desplegable */
+    border-radius: 5px; /* Bordes redondeados del menú desplegable */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra del menú desplegable */
+}
+
+.navbar .dropdown-item {
+    font-size: 1rem; /* Tamaño de fuente de los elementos del menú desplegable */
+}
+
+/* Estilos para pantallas menores a 1024px */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 8px 16px; /* Espaciado interno de la navbar */
+    }
+
+    .navbar .tienda-link img {
+        max-height: 35px; /* Altura máxima de la imagen del enlace de la tienda */
+    }
+
+    /* No se requiere redefinir flex-direction ni otras reglas base */
+}
+
+/* Estilos para pantallas menores a 425px */
+@media (max-width: 425px) {
+    .navbar {
+        flex-direction: column; /* Cambia a diseño vertical */
+        padding: 1px 1px; /* Espaciado interno de la navbar */
+        min-height: 40px; /* Ajusta la altura mínima para pantallas pequeñas */
+    }
+
+    .navbar-nav {
+        flex-direction: column; /* Cambia a diseño vertical */
+        gap: 4px; /* Espaciado entre los elementos del nav */
+    }
+
+    .navbar .nav-link {
+        font-size: 0.6rem; /* Tamaño de fuente de los enlaces de navegación */
+        padding: 1px 1px; /* Espaciado interno de los enlaces de navegación */
+    }
+
+    .navbar .tienda-link {
+        font-size: 0.6rem; /* Tamaño de fuente del enlace de la tienda */
+        padding: 1px 1px; /* Espaciado interno del enlace de la tienda */
+        min-width: auto; /* Ancho mínimo automático del enlace de la tienda */
+    }
+
+    .navbar .tienda-link img {
+        max-height: 30px; /* Altura máxima de la imagen del enlace de la tienda */
+    }
+
+    .navbar .dropdown-menu {
+        width: 100%; /* Ancho completo del menú desplegable */
+        border-radius: 0; /* Bordes sin redondear del menú desplegable */
+        box-shadow: none; /* Sin sombra del menú desplegable */
+    }
+
+    .navbar .dropdown-item {
+        font-size: 0.6rem; /* Tamaño de fuente de los elementos del menú desplegable */
+    }
+}
+
+
+
+/* ========================================================================== */
+/* 6. ANIMACIONES Y SCROLL DEL MENÚ                                           */
+/* ========================================================================== */
+
+/* Efecto de animación al hacer scroll */
+body.scrolled .navbar {
+    background-color: #05ac29; /* Fondo verde */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+
+
+
+
+
+/* ========================================================================== */
+/* 6. CONTRACCIONES DE TEXTO */
+/* ========================================================================== */
+
+/* Texto base para enlaces en pantallas grandes */
+.navbar .nav-link {
+    content: attr(data-full); /* Mostrar texto completo */
+}
+
+/* En pantallas pequeñas, contracción de texto */
+@media (max-width: 768px) {
+    .navbar .nav-link {
+        content: attr(data-short); /* Texto abreviado */
+    }
+
+    .navbar .nav-link {
+        padding: 0 0.5px; /* Espaciado compacto */
+    }
+}
+
+
+
+
+/*========================================================================== 
+2. TIPOS DE LETRA Y BOTONES
+==========================================================================*/
+
+/* ======================== TÍTULOS ======================== */
+/* ====== Estilo para Títulos en Pantallas Grandes ====== */
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif; /* Fuente moderna y limpia */
+    color: #333; /* Color oscuro para mayor legibilidad */
+    margin-top: 10px; /* Espaciado superior */
+    margin-bottom: 15px; /* Espaciado inferior */
+}
+
+/* Tamaño de los títulos en pantallas grandes */
+h1 {
+    font-size: 2rem; /* Tamaño del título principal */
+    font-weight: bold; /* Resalta el título principal */
+}
+
+h2 {
+    font-size: 1.5rem; /* Tamaño de subtítulos */
+    font-weight: semi-bold; /* Peso medio para subtítulos */
+}
+
+h3 {
+    font-size: 1.2rem; /* Tamaño para subtítulos menores */
+    font-weight: normal; /* Peso normal para títulos pequeños */
+}
+
+/* ====== Ajustes para Títulos en Pantallas Pequeñas ====== */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem; /* Título principal más pequeño */
+    }
+
+    h2 {
+        font-size: 1.2rem; /* Subtítulos más pequeños */
+    }
+
+    h3 {
+        font-size: 1rem; /* Subtítulos menores más pequeños */
+    }
+}
+
+/* ======================== TEXTOS GENERALES ======================== */
+/* ====== Estilo para Textos Generales ====== */
+body {
+    font-family: 'Arial', sans-serif; /* Fuente estándar */
+    color: #555; /* Color gris para contraste */
+    font-size: 1rem; /* Tamaño base del texto en pantallas grandes */
+    line-height: 1.5; /* Espaciado entre líneas para mayor legibilidad */
+    margin: 0;
+    padding: 0;
+}
+
+/* ====== Ajustes para Textos en Pantallas Pequeñas ====== */
+@media (max-width: 768px) {
+    body {
+        font-size: 0.9rem; /* Texto base reducido */
+    }
+}
+
+/* ======================== BOTONES ======================== */
+/* ====== Estilo Base para Botones ====== */
+button, .btn {
+    background-color: #05ac29; /* Verde corporativo */
+    color: white; /* Texto en blanco */
+    border: none; /* Sin bordes */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 1rem; /* Tamaño de texto estándar */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Indicador visual de clic */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+}
+
+/* Efecto hover en botones */
+button:hover, .btn:hover {
+    background-color: #e3ae00; /* Amarillo corporativo en hover */
+    transform: translateY(-2px); /* Ligero efecto de elevación */
+}
+
+/* ====== Ajustes para Botones en Pantallas Pequeñas ====== */
+@media (max-width: 768px) {
+    button, .btn {
+        font-size: 0.85rem; /* Tamaño reducido */
+        padding: 8px 12px; /* Botones más compactos */
+        margin: 5px 0; /* Márgenes verticales */
+    }
+}
+
+
+
+/*========================================================================== 
+5. ÍCONO .ICO DEL NAVEGADOR
+==========================================================================*/
+
+/* Estilo específico para el ícono del navegador si se necesita un ajuste visual */
+.ico-navegador {
+    width: 16px; /* Tamaño estándar para íconos .ico */
+    height: 16px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+/* ========================================================================== */
+/* 2. BANNERS PUBLICITARIOS */
+/* ========================================================================== */
+
+/* Contenedor principal del banner */
+#banners {
+    margin-top: 0 !important; /* Elimina cualquier margen superior previo */
+    padding-top: 0 !important; /* Asegura que no haya espacio adicional arriba */
+    position: relative; /* Para garantizar que los controles y elementos se posicionen correctamente */
+    overflow: hidden; /* Evita que los elementos del carrusel se desborden */
+}
+
+/* Imágenes del carrusel */
+#banners .carousel-inner img {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    height: 600px; /* Altura fija para mantener la proporción en pantallas grandes */
+    object-fit: cover; /* Ajusta la imagen para que ocupe el espacio sin distorsionarse */
+    transition: transform 0.5s ease-in-out; /* Suaviza cualquier animación (como hover o cambio) */
+}
+
+/* Indicadores del carrusel */
+#banners .carousel-indicators button {
+    background-color: #05ac29; /* Verde corporativo */
+    width: 12px; /* Tamaño consistente del indicador */
+    height: 12px;
+    border-radius: 50%; /* Forma circular */
+    border: none; /* Sin bordes */
+    margin: 0 5px; /* Espaciado uniforme entre indicadores */
+    opacity: 0.8; /* Indicadores ligeramente transparentes */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transición suave en hover */
+}
+
+#banners .carousel-indicators button:hover,
+#banners .carousel-indicators .active {
+    opacity: 1; /* Totalmente visibles en hover o si están activos */
+    transform: scale(1.2); /* Ligera ampliación para destacar */
+}
+
+/* Controles de navegación */
+#banners .carousel-control-prev-icon,
+#banners .carousel-control-next-icon {
+    filter: invert(1); /* Cambia los colores del ícono */
+    width: 40px; /* Ajusta el tamaño de los íconos */
+    height: 40px;
+    background-size: 100%; /* Asegura que el ícono ocupe todo el espacio */
+    transition: transform 0.3s ease; /* Suaviza el efecto hover */
+}
+
+#banners .carousel-control-prev-icon:hover,
+#banners .carousel-control-next-icon:hover {
+    transform: scale(1.1); /* Efecto de ampliación en hover */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    #banners .carousel-inner img {
+        height: 400px; /* Reduce la altura en tablets y móviles */
+    }
+}
+
+@media (max-width: 576px) {
+    #banners .carousel-inner img {
+        height: 250px; /* Altura más compacta en dispositivos muy pequeños */
+    }
+
+    #banners .carousel-indicators button {
+        width: 10px; /* Indicadores más pequeños */
+        height: 10px;
+    }
+}
+
+/* ========================================================================== */
+/* 3. DESTACADOS */
+/* ========================================================================== */
+
+#destacados {
+    margin-top: 1px; /* Reducir el margen superior */
+    padding-top: 1px; /* Reducir el padding superior */
+    padding-bottom: 1px; /* Reducir el padding inferior */
+    scroll-margin-top: 1px; /* Ajusta el espacio al navegar hacia esta sección */
+}
+
+#destacadosContainer {
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 95%;
+    max-width: 1200px; /* Limita el ancho máximo en pantallas grandes */
+}
+
+#productosDestacadosGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Tarjetas individuales */
+#productosDestacadosGrid .destacado-item {
+    flex: 1 1 calc(33.333% - 20px); /* Tres tarjetas por fila */
+    max-width: calc(33.333% - 20px); /* Máximo ancho por tarjeta */
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+/* Imágenes dentro de las tarjetas */
+#productosDestacadosGrid .destacado-item img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+/* Títulos */
+#productosDestacadosGrid .destacado-item h5 {
+    color: #0044e3;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+/* Descripciones */
+#productosDestacadosGrid .destacado-item p {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+/* Comentario de oferta */
+#productosDestacadosGrid .destacado-item .comentario-oferta {
+    color: #05ac29; /* Verde corporativo */
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* Precios alineados */
+#productosDestacadosGrid .destacado-item .precio-contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#productosDestacadosGrid .destacado-item .precio-original {
+    color: #999;
+    font-size: 1rem;
+    text-decoration: line-through;
+}
+
+#productosDestacadosGrid .destacado-item .precio-descuento {
+    color: #e60000; /* Rojo llamativo */
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+/* Botón con efecto 3D */
+#productosDestacadosGrid .destacado-item .btn-primary {
+    background-color: #05ac29;
+    border-color: #05ac29;
+    font-size: 1rem;
+    padding: 8px 15px;
+    margin-top: auto; /* Asegura que el botón quede abajo */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Efecto de profundidad */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#productosDestacadosGrid .destacado-item .btn-primary:hover {
+    transform: translateY(-3px); /* Efecto de elevación */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover para tarjetas */
+#productosDestacadosGrid .destacado-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================================================== */
+/* RESPONSIVIDAD */
+/* ========================================================================== */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 992px) {
+    #productosDestacadosGrid .destacado-item {
+        flex: 1 1 calc(50% - 20px); /* Dos tarjetas por fila */
+        max-width: calc(50% - 20px);
+    }
+}
+
+/* Móviles y pantallas pequeñas */
+@media (max-width: 576px) {
+    #productosDestacadosGrid .destacado-item {
+        flex: 1 1 100%; /* Una tarjeta por fila */
+        max-width: 100%;
+    }
+
+    #productosDestacadosGrid .destacado-item img {
+        max-width: 100%; /* Asegura que la imagen ocupe todo el ancho */
+    }
+}
+
+
+/* ========================================================================== */
+/* 4. PRODUCTOS */
+/* ========================================================================== */
+
+/* Contenedor Principal de Categorías */
+#categoriasContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Espaciado entre categorías */
+    margin-top: 2rem;
+    padding: 0 15px; /* Ajusta el contenedor para pantallas pequeñas */
+}
+
+/* Sección de Categorías */
+#categoriasContainer .categoria-section {
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 0.625rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover en la sección */
+#categoriasContainer .categoria-section:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-0.2rem);
+}
+
+/* Títulos de las Categorías */
+#categoriasContainer .categoria-section h3 {
+    color: #0044e3; /* Azul corporativo */
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Contenedor de Productos dentro de Categorías */
+#categoriasContainer .categoria-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+/* Tarjetas de Productos */
+#categoriasContainer .categoria-grid .categoria-item {
+    flex: 1 1 calc(25% - 1.5rem); /* Cuatro tarjetas por fila en pantallas grandes */
+    max-width: calc(25% - 1.5rem);
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 0.625rem;
+    text-align: center;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+/* Hover en las tarjetas */
+#categoriasContainer .categoria-grid .categoria-item:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen de Producto */
+#categoriasContainer .categoria-grid .categoria-item img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    object-fit: cover;
+    margin: 0 auto 1rem;
+    border-radius: 0.625rem;
+}
+
+/* Nombre del Producto */
+#categoriasContainer .categoria-grid .categoria-item h5 {
+    color: #0044e3; /* Azul corporativo */
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+}
+
+/* Descripción del Producto */
+#categoriasContainer .categoria-grid .categoria-item p {
+    color: #333;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.5; /* Mejora la legibilidad */
+}
+
+/* Comentario de la Oferta */
+#categoriasContainer .categoria-grid .categoria-item .comentario-oferta {
+    color: #05ac29; /* Verde corporativo */
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+/* Precios alineados */
+#categoriasContainer .categoria-grid .categoria-item .precio-contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+/* Precio Original */
+#categoriasContainer .categoria-grid .categoria-item .precio-original {
+    color: #999;
+    font-size: 1rem;
+    text-decoration: line-through;
+}
+
+/* Precio con Descuento */
+#categoriasContainer .categoria-grid .categoria-item .precio-descuento {
+    color: #e60000; /* Rojo llamativo */
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+/* Botón para Comprar */
+#categoriasContainer .categoria-grid .categoria-item .btn-primary {
+    background-color: #05ac29; /* Verde corporativo */
+    border-color: #05ac29;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    margin-top: auto; /* Siempre en la parte inferior */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#categoriasContainer .categoria-grid .categoria-item .btn-primary:hover {
+    transform: translateY(-0.2rem);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================================================== */
+/* RESPONSIVIDAD */
+/* ========================================================================== */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 1024px) {
+    #categoriasContainer .categoria-grid .categoria-item {
+        flex: 1 1 calc(33.333% - 1.5rem); /* Tres tarjetas por fila */
+        max-width: calc(33.333% - 1.5rem);
+    }
+
+    #categoriasContainer .categoria-section h3 {
+        font-size: 1.5rem; /* Ajusta el tamaño del título */
+    }
+}
+
+/* Móviles y pantallas pequeñas */
+@media (max-width: 425px) {
+    #categoriasContainer .categoria-grid .categoria-item {
+        flex: 1 1 100%; /* Una tarjeta por fila */
+        max-width: 100%;
+    }
+
+    #categoriasContainer .categoria-section h3 {
+        font-size: 1.2rem; /* Más pequeño para móviles */
+    }
+
+    #categoriasContainer .categoria-grid .categoria-item img {
+        max-width: 100%; /* La imagen ocupa el ancho disponible */
+    }
+}
+
+/* ========================================================================== 
+5. TIENDA 
+========================================================================== */
+
+/* Sección principal de la tienda */
+#tienda-virtual {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 40px;
+    overflow: hidden; /* Evita que elementos desbordantes causen efectos visuales */
+}
+
+/* Contenedor principal para las tiendas */
+#tiendasContainer {
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    scroll-margin-top: 120px; /* Asegura visibilidad adecuada al hacer scroll */
+}
+
+/* Título de la sección de tiendas */
+#tiendasContainer h2 {
+    color: #0044e3; /* Azul corporativo */
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Contenedor de tiendas */
+#tiendaContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    min-height: 300px; /* Altura mínima para evitar colapsos */
+}
+
+/* Mensaje de carga */
+#loadingMessage {
+    font-size: 1rem;
+    color: #888888;
+    margin: 0;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animación para el mensaje de carga */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Estilo individual para tarjetas */
+.tienda-item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Habilita el posicionamiento para elementos secundarios */
+}
+
+/* Agregar un ícono decorativo a las tiendas */
+.tienda-item::before {
+    content: "🛍️";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: #05ac29;
+    opacity: 0.7;
+}
+
+/* Hover de la tarjeta */
+.tienda-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen de la tienda */
+.tienda-imagen {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Texto */
+.tienda-item h5 {
+    font-size: 1.5rem;
+    color: #0044e3;
+    margin-bottom: 10px;
+    text-transform: uppercase; /* Destaca los títulos */
+    letter-spacing: 1px;
+}
+
+.tienda-item p {
+    color: #666666;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* Botón */
+.tienda-boton {
+    background-color: #05ac29;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Efecto 3D */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tienda-boton:hover {
+    background-color: #028a20;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Más profundidad en hover */
+}
+
+
+/* ========================================
+AJUSTES RESPONSIVOS PARA SECCIÓN TIENDA
+======================================== */
+@media (max-width: 1024px) {
+    #tienda-virtual .tienda-container {
+        flex-direction: column; /* Los botones se apilan verticalmente */
+        gap: 15px;
+    }
+
+    #tienda-virtual .tienda-boton {
+        width: 80%; /* Ancho reducido para dispositivos pequeños */
+        margin: 0 auto; /* Centra los botones en el contenedor */
+    }
+}
+
+@media (max-width: px) {
+    #tienda-virtual .tienda-boton {
+        width: 100%; /* Toma todo el ancho disponible */
+    }
+}
+
+
+/*==========================================================================
+6. CONÓCENOS
+==========================================================================*/
+/* Aquí irán los estilos para los banners publicitarios de la sección Conócenos */
+
+#carouselConocenos .carousel-item img {
+    height: 400px; /* Ajusta la altura según tu diseño */
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    #carouselConocenos .carousel-item img {
+        height: 250px; /* Reduce la altura en pantallas pequeñas */
+    }
+}
+
+
+
+/*==========================================================================
+7. CONTACTO
+==========================================================================*/
+#contactanos-links {
+    text-align: center;
+    background-color: #2C2C2C;
+    color: #ffffff;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Espaciado entre los elementos */
+}
+
+/* Iconos de contacto */
+#contactanos-links img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Contenedor de cada enlace de contacto */
+#contactanos-links a {
+    color: #000; /* Texto en negro */
+    font-weight: bold; /* Texto en negrita */
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Espaciado entre el icono y el texto */
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #696969; /* Fondo blanco */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efecto 3D */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contactanos-links a:hover {
+    background-color: #f5f5f5; /* Fondo gris claro en hover */
+    color: #333; /* Gris oscuro para el texto al hacer hover */
+    font-weight: bold; /* Mantener negrita también en hover */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Título y texto de contacto */
+#contacto {
+    background-color: #2C2C2C;
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#contacto h2 {
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#contacto p {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Responsividad para íconos en dispositivos pequeños */
+@media (max-width: 576px) {
+    #contactanos-links a {
+        flex-direction: row;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    #contactanos-links img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+
+/*==========================================================================
+8. REDES SOCIALES
+==========================================================================*/
+#redes-sociales {
+    text-align: center;
+    background-color: #2C2C2C;
+    color: #ffffff;
+    padding: 20px;
+}
+
+#redes-sociales h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+#social-media-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+#social-media-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    color: #05ac29;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+#social-media-links a:hover {
+    background-color: #e3ae00;
+    transform: translateY(-5px);
+}
+
+#social-media-links img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin: auto;
+}
+
+/* ========================================================================== */
+/* 9. BOTONES FLOTANTES */
+/* ========================================================================== */
+
+/* Estilo base para los botones flotantes */
+.boton-flotante {
+    position: fixed;
+    z-index: 1100; /* Siempre encima del contenido principal */
+    width: 70px;
+    height: 70px;
+    border-radius: 50%; /* Forma circular */
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    text-decoration: none; /* Elimina subrayados */
+    overflow: hidden; /* Evita desbordamientos */
+    text-indent: -9999px; /* Oculta texto dentro del enlace */
+    font-size: 0; /* Asegura que no haya texto visible */
+    color: transparent; /* Oculta el color del texto */
+}
+
+/* Icono dentro del botón */
+.boton-flotante img {
+    width: 100%; /* Tamaño relativo al contenedor */
+    height: 100%; 
+    object-fit: contain; /* Mantiene la proporción del ícono */
+    pointer-events: none; /* Desactiva interacciones en el ícono */
+    display: block; /* Asegura que el ícono se renderice correctamente */
+}
+
+/* Botón de WhatsApp */
+.boton-flotante.whatsapp {
+    background-color: #25D366; /* Verde característico de WhatsApp */
+    bottom: 100px; /* Posición desde la parte inferior */
+    right: 20px; /* Posición desde la parte derecha */
+
+}
+
+/* Botón de Gmail */
+.boton-flotante.gmail {
+    background-color: #D44638; /* Rojo característico de Gmail */
+    bottom: 20px; /* Espaciado adicional para evitar superposición */
+    right: 20px;
+
+}
+
+/* Efecto hover para los botones */
+.boton-flotante:hover {
+    transform: translateY(-5px); /* Efecto de elevación */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Incrementa la profundidad */
+    background-color: #0044e3; /* Azul corporativo al hacer hover */
+}
+
+/* Hover específico para el ícono */
+.boton-flotante:hover img {
+    opacity: 0.9; /* Ligero efecto de opacidad */
+    transition: opacity 0.3s ease; /* Suaviza el cambio */
+}
+
+/* Responsividad para dispositivos pequeños */
+@media (max-width: 1024px) {
+    .boton-flotante {
+        width: 60px; /* Tamaño más pequeño en móviles */
+        height: 60px;
+    }
+
+    .boton-flotante img {
+        width: 100%; /* Ajusta el tamaño del ícono */
+        height: 100%;
+    }
+
+    .boton-flotante.whatsapp {
+        bottom: 80px; /* Ajusta la posición desde la parte inferior */
+        right: 10px; /* Ajusta la posición desde la parte derecha */
+    }
+
+    .boton-flotante.gmail {
+        bottom: 10px; /* Ajusta el espaciado adicional para evitar superposición */
+        right: 10px;
+    }
+}
+
+/* Responsividad para dispositivos pequeños */
+@media (max-width: 425px) {
+    .boton-flotante {
+        width: 50px; /* Tamaño más pequeño en móviles */
+        height: 50px;
+    }
+
+    .boton-flotante img {
+        width: 100%; /* Ajusta el tamaño del ícono */
+        height: 100%;
+    }
+
+    .boton-flotante.whatsapp {
+        bottom: 70px; /* Ajusta la posición desde la parte inferior */
+        right: 10px; /* Ajusta la posición desde la parte derecha */
+    }
+
+    .boton-flotante.gmail {
+        bottom: 10px; /* Ajusta el espaciado adicional para evitar superposición */
+        right: 10px;
+    }
+}
+
+/* ==========================================================================
+10. AJUSTES GENERALES Y RESPONSIVIDAD
+========================================================================== */
+
+/* Estilos generales para títulos */
+h2, h3 {
+    text-transform: uppercase;
+    text-align: center;
+    color: #0044e3; /* Azul corporativo */
+    margin-bottom: 20px;
+}
+
+
+
+
+
+/* ========================================
+AJUSTES GENERALES PARA SECCIONES
+======================================== */
+/* Espaciado adicional entre secciones */
+section {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Ajustes de botones para todas las secciones */
+.btn {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    transform: translateY(-2px); /* Efecto de elevación sutil */
+    transition: all 0.3s ease;
+}
